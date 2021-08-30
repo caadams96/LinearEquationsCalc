@@ -112,7 +112,9 @@ def solve_2x2_matrix(a1,b1,c1,a2,b2,c2):
             if rounded_eq1 == matrix_c[0][0] and rounded_eq2 == matrix_c[1][0]:
                 print(f"X:{x}, Y:{y} pair will solve system of equations")
 
-
+#//////////////////////////////////////
+#--Main----------------------
+#//////////////////////////////////////
 while True:
     try:
         #get first equation
