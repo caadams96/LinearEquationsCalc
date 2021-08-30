@@ -25,19 +25,6 @@ def solve_2x2_matrix(a1,b1,c1,a2,b2,c2):
 
         matrix_c  =  [[c1],
                       [c2]]
- 
-
-        #fill in matrix_dx and matrix_dy
-        matrix_dx[0][0] = matrix_c[0][0]
-        matrix_dx[0][1] = matrix_d[0][1]
-        matrix_dx[1][0] = matrix_c[1][0]
-        matrix_dx[1][1] = matrix_d[1][1]
-
-        matrix_dy[0][0] = matrix_d[0][0]
-        matrix_dy[0][1] = matrix_c[0][0]
-        matrix_dy[1][0] = matrix_d[1][0]
-        matrix_dy[1][1] = matrix_c[1][0]
-
 
         #Get determinant of matrices
         d  = (matrix_d[0][0]*matrix_d[1][1]) - (matrix_d[0][1]*matrix_d[1][0])
