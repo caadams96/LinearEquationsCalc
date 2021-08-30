@@ -14,6 +14,9 @@ def divide(x,y):
 #function that uses cramers rule to solve for x and y
 def solve_2x2_matrix(a1,b1,c1,a2,b2,c2):
         #initialize 2x2 matrices
+        matrix_c  =  [[c1],
+                      [c2]]
+       
         matrix_d  =  [[a1, b1],
                      [a2, b2]]
 
@@ -23,8 +26,6 @@ def solve_2x2_matrix(a1,b1,c1,a2,b2,c2):
         matrix_dy =  [[a1, c1],
                      [a2, c2]]
 
-        matrix_c  =  [[c1],
-                      [c2]]
 
         #Get determinant of matrices
         d  = (matrix_d[0][0]*matrix_d[1][1]) - (matrix_d[0][1]*matrix_d[1][0])
@@ -159,7 +160,6 @@ while True:
     except ValueError:
         print("Error, lets try again")
         print("\n")
-
 
 
 
