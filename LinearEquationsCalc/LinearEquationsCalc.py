@@ -30,22 +30,25 @@ def solve_2x2_matrix(a1,b1,c1,a2,b2,c2):
         d  = (matrix_d[0][0]*matrix_d[1][1]) - (matrix_d[0][1]*matrix_d[1][0])
         dx = (matrix_dx[0][0]*matrix_dx[1][1]) - (matrix_dx[0][1]*matrix_dx[1][0])
         dy = (matrix_dy[0][0]*matrix_dy[1][1]) - (matrix_dy[0][1]*matrix_dy[1][0])
+        
+        #get x and y by dividing determinants
+        x = divide(dx,d)
+        y = divide(dy,d)
 
+        #solve the first equation and round
+        equation1_solved = matrix_d[0][0] * x + matrix_d[0][1] * y
+        rounded_eq1 = round(equation1_solved,2)
+        #solve the second equation and round
+        equation2_solved = matrix_d[1][0]* x + matrix_d[1][1] * y
+        rounded_eq2 = round(equation2_solved,2)
 
-        #make a string to visually represent matrices
-        print("\n")
+       
 
-        formulastring1 = "a1X + b1Y = c1"
+        # forumla =  a1X + b1Y = c1
         eq1 = f"{matrix_d[0][0]}X + {matrix_d[0][1]}Y = {matrix_c[0][0]}"
-
-        formulastring2 = "a2X + b2Y = c2"
+        # forumla = a2X + b2Y = c2
         eq2 = f"{matrix_d[1][0]}X + {matrix_d[1][1]}Y = {matrix_c[1][0]}"
-
-        print("Equation 1")
-        print(eq1)
-
-        print("Equation 2")
-        print(eq2)
+        #make strings to visually represent matrices
         c = f""" 
         C = |[{matrix_c[0][0]}]|
             |[{matrix_c[1][0]}]|
@@ -62,42 +65,74 @@ def solve_2x2_matrix(a1,b1,c1,a2,b2,c2):
         Dy = |[{matrix_dy[0][0]}, {matrix_dy[0][1]}]|
              |[{matrix_dy[1][0]}, {matrix_dy[1][1]}]| = {dy}
         """
+        # X and Y pair
+        xy_pair = f"X = {x}, Y = {y}"
+        #Solved Equations
+        new_eq1 = f"{matrix_d[0][0]} * {x} + {matrix_d[0][1]} * {y} = {rounded_eq1}"
+        new_eq2 = f"{matrix_d[1][0]} * {x} + {matrix_d[1][1]} * {y} = {rounded_eq2}"
 
         #Main 
         if d == 0:
             #if deteminant of d = 0 the equation has no solution
             print("Equation Has No Solution")
         else:
+            print("\n")
+            print("_____________________________")
+            print("Equations")
+            print("-----------------------------")
+            print("Equation 1")
+            print(eq1)
+            print("-----------------------------")
+            print("Equation 2")
+            print(eq2)
+            print("_____________________________")
+
+            print("\n")
+            
+            print("__________________________________________")
+            print("-Matrices")
+            print("------------------------------------------")
             print(c)
+            print("------------------------------------------")
             print(dm)
+            print("------------------------------------------")
             print(dxm)
+            print("------------------------------------------")
             print(dym)
-    
-            x = divide(dx,d)
-            y = divide(dy,d)
-    
-            xy_pair = f"X = {x}, Y = {y}"
+            print("__________________________________________")
+
+            print("\n")
+
+            print("____________________________")
             print("X,Y pair")
-    
+            print("----------------------------")
             print(xy_pair)
+            print("____________________________")
 
-            equation1_solved = matrix_d[0][0] * x + matrix_d[0][1] * y
-            rounded_eq1 = round(equation1_solved,2)
-
-            equation2_solved = matrix_d[1][0]* x + matrix_d[1][1] * y
-            rounded_eq2 = round(equation2_solved,2)
-
-            new_eq1 = f"{matrix_d[0][0]} * {x} + {matrix_d[0][1]} * {y} = {rounded_eq1}"
-            new_eq2 = f"{matrix_d[1][0]} * {x} + {matrix_d[1][1]} * {y} = {rounded_eq2}"
-    
             print("\n")
             print(f"Lets insert {x}, {y} into the equations")
+            print(f"_______________________________________")
+            print("______________________________")
+            print("Equations")
+            print("-----------------------------")
+            print("Equation 1")
             print(new_eq1)
+            print("-----------------------------")
+            print("Equation 2")
             print(new_eq2)
+            print("_____________________________")
+            
             print("\n")
- 
+
+            
             if rounded_eq1 == matrix_c[0][0] and rounded_eq2 == matrix_c[1][0]:
-                print(f"X:{x}, Y:{y} pair will solve system of equations")
+                print("_____________________________________________________________")
+                print("Answer")
+                print("-------------------------------------------------------------")
+                print(f"Confirmed: X:{x}, Y:{y} pair will solve system of equations")
+                print("-------------------------------------------------------------")
+            
+
 
 #//////////////////////////////////////
 #--Main----------------------
